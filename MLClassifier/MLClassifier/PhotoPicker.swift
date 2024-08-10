@@ -8,10 +8,6 @@
 import SwiftUI
 import PhotosUI
 
-// PHPicker를 SwiftUI에서 사용할 수 있도록 UIViewControllerRepresentable로 래핑
-import SwiftUI
-import PhotosUI
-
 struct PhotoPicker: UIViewControllerRepresentable {
     @Binding var selectedImageModels: [ImageModel]
     @State private var croppedImages: [UIImage] = []
