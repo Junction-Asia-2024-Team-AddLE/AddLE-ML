@@ -13,6 +13,8 @@ struct ContentView: View {
     @State private var selectedItem: ImageModel? = nil
     @State private var isPickerPresented = false
     @State private var isLoading = false
+    @State private var showAlert = false
+
     
     var body: some View {
         HStack(spacing: 0) {
@@ -151,6 +153,7 @@ struct ContentView: View {
                                     await FirebaseService.shared.uploadImage(imageModel: imageItems[selectedItemIndex])
                                     imageItems[selectedItemIndex].isUploaded = true
                                     isLoading = false
+                                    showAlert = true
                                 }
                             }, label: {
                                 ZStack {
@@ -190,6 +193,11 @@ struct ContentView: View {
                     .foregroundColor(.gray)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
+        }
+        .alert("Message", isPresented: $showAlert) {
+            Button("OK", role: .cancel) { }
+        } message: {
+            Text("Upload Complete")
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .sheet(isPresented: $isPickerPresented) {
