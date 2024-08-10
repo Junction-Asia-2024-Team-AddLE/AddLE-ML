@@ -10,17 +10,17 @@ import CoreML
 import Vision
 
 class ObjectDetector {
-    var tailLampDetecitonModel: VNCoreMLModel // 차량 후미등을 감지하는 모델 (Object Detection)
+    var tailLampDetectionModel: VNCoreMLModel // 차량 후미등을 감지하는 모델 (Object Detection)
     var tailLampClassificationModel: VNCoreMLModel // 차량 후미등을 분류하는 모델 (Classification)
     
     init() {
         
         // TailLampDetecitonModel 로드
-        guard let tailLampDetecitonModelURL = Bundle.main.url(forResource: "TailLampDetector", withExtension: "mlmodelc"),
-              let tailLampDetecitonModel = try? VNCoreMLModel(for: MLModel(contentsOf: tailLampDetecitonModelURL)) else {
-            fatalError("Tail Lamp Detection Model 모델을 로드할 수 없습니다.")
+        guard let tailLampDetectionModelURL = Bundle.main.url(forResource: "MyObjectDetector", withExtension: "mlmodelc"),
+              let tailLampDetectionModel = try? VNCoreMLModel(for: MLModel(contentsOf: tailLampDetectionModelURL)) else {
+            fatalError("MyObjectDetector 모델을 로드할 수 없습니다.")
         }
-        self.tailLampDetecitonModel = tailLampDetecitonModel
+        self.tailLampDetectionModel = tailLampDetectionModel
         
         // TailLampClassificationModel 로드
         guard let tailLampClassificationModelURL = Bundle.main.url(forResource: "MyImageClassifier", withExtension: "mlmodelc"),
@@ -40,7 +40,7 @@ class ObjectDetector {
             return
         }
         
-        let request = VNCoreMLRequest(model: tailLampDetecitonModel) { (request, error) in
+        let request = VNCoreMLRequest(model: tailLampDetectionModel) { (request, error) in
             guard let results = request.results as? [VNRecognizedObjectObservation] else {
                 print("후미등 사진을 가져올 수 없습니다.")
                 completion(nil)

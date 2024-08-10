@@ -26,9 +26,9 @@ extension FirebaseService {
                 .addDocument(data: [
                     FStore.date : Date(),
                     FStore.image : data.imageUrl,
-                    FStore.confidence : data.confidence,
-                    FStore.label : data.label,
-                    FStore.process : data.processStatus
+                    FStore.process : data.processStatus,
+                    FStore.latitude : data.latitude,
+                    FStore.longitude : data.longitude,
                 ])
           print("Document added with ID: \(ref.documentID)")
         } catch {
@@ -68,9 +68,10 @@ extension FirebaseService {
         let data = ImageDetection(
             date: .now,
             imageUrl: url?.absoluteString ?? "",
-            confidence: imageModel.confidence!,
-            label: Int(imageModel.label!),
-            processStatus: 0
+            label: imageModel.croppedImages.count,
+            processStatus: 0,
+            latitude: imageModel.latitude,
+            longitude: imageModel.longitude
         )
         
         await createStore(data)

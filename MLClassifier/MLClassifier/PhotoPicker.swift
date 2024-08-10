@@ -60,36 +60,57 @@ struct PhotoPicker: UIViewControllerRepresentable {
             objectDetector.detectTailLampObjects(in: image) { observations in
                 guard let observations = observations else { return }
 
+                var croppedImages: [UIImage?] = []
+                var boundingBoxes: [CGRect?] = []
+
+                // 모든 감지된 객체에 대해 처리
                 for observation in observations {
                     let imageSize = CGSize(width: image.size.width, height: image.size.height)
-                    let boundingBox = observation.boundingBox
-                    let cropRect = self.calculateCropRect(from: boundingBox, imageSize: imageSize)
+                    let cropRect = self.calculateCropRect(from: observation.boundingBox, imageSize: imageSize)
 
                     if let croppedImage = self.objectDetector.cropImage(image, toRect: cropRect) {
-                        
-                        self.objectDetector.classifyObject(in: croppedImage) { classification in
-                            DispatchQueue.main.async {
-                                let confidence = classification?.confidence ?? 0.0
-                                let label = Int(classification!.identifier)
-                                let newImageModel = ImageModel(
-                                    image: image,
-                                    croppedImage: croppedImage,
-                                    confidence: confidence,
-                                    label: label,
-                                    boundingBox: boundingBox
-                                )
-                                self.parent.selectedImageModels.append(newImageModel)
-                            }
+                        croppedImages.append(croppedImage)
+                        boundingBoxes.append(observation.boundingBox)
+                    }
+                }
+
+                // 감지된 객체가 없거나, 첫 번째 객체의 분류 정보를 사용하는 경우에 대한 처리
+                if !croppedImages.isEmpty {
+                    let firstCroppedImage = croppedImages[0] ?? image
+                    self.objectDetector.classifyObject(in: firstCroppedImage) { classification in
+                        DispatchQueue.main.async {
+                            let label = Int(classification?.identifier ?? "") ?? 0
+
+                            // ImageModel 생성
+                            let newImageModel = ImageModel(
+                                image: image,
+                                croppedImages: croppedImages,
+                                label: label,
+                                tailLampsboundingBoxs: boundingBoxes,
+                                isUploaded: false
+                            )
+                            self.parent.selectedImageModels.append(newImageModel)
                         }
                     }
+                } else {
+                    // 객체가 감지되지 않은 경우에 대한 기본 ImageModel
+                    let newImageModel = ImageModel(
+                        image: image,
+                        croppedImages: [],
+                        label: nil,
+                        tailLampsboundingBoxs: [],
+                        isUploaded: false
+                    )
+                    self.parent.selectedImageModels.append(newImageModel)
                 }
             }
         }
 
+
         private func calculateCropRect(from boundingBox: CGRect, imageSize: CGSize) -> CGRect {
             return CGRect(
                 x: boundingBox.origin.x * imageSize.width,
-                y: (1 - boundingBox.origin.y - boundingBox.height) * imageSize.height,
+                y: (1 - boundingBox.origin.y) * imageSize.height - boundingBox.height * imageSize.height,
                 width: boundingBox.width * imageSize.width,
                 height: boundingBox.height * imageSize.height
             )
