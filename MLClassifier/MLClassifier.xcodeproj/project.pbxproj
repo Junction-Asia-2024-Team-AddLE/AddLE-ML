@@ -11,6 +11,10 @@
 		35699F792C678E6B00BE1C6D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35699F782C678E6B00BE1C6D /* ContentView.swift */; };
 		35699F7B2C678E6C00BE1C6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35699F7A2C678E6C00BE1C6D /* Assets.xcassets */; };
 		35699F7E2C678E6C00BE1C6D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35699F7D2C678E6C00BE1C6D /* Preview Assets.xcassets */; };
+		35699F862C678EE000BE1C6D /* ObjectDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35699F852C678EE000BE1C6D /* ObjectDetector.swift */; };
+		35699F882C678F0E00BE1C6D /* TailLampDetector.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 35699F872C678F0E00BE1C6D /* TailLampDetector.mlmodel */; };
+		35699F8A2C678F1200BE1C6D /* MyImageClassifier 4 copy.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 35699F892C678F1200BE1C6D /* MyImageClassifier 4 copy.mlmodel */; };
+		35699F8C2C678F5300BE1C6D /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35699F8B2C678F5300BE1C6D /* ImageModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +24,10 @@
 		35699F7A2C678E6C00BE1C6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35699F7D2C678E6C00BE1C6D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		35699F842C678E8C00BE1C6D /* MLClassifier.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MLClassifier.entitlements; sourceTree = "<group>"; };
+		35699F852C678EE000BE1C6D /* ObjectDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDetector.swift; sourceTree = "<group>"; };
+		35699F872C678F0E00BE1C6D /* TailLampDetector.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = TailLampDetector.mlmodel; sourceTree = "<group>"; };
+		35699F892C678F1200BE1C6D /* MyImageClassifier 4 copy.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "MyImageClassifier 4 copy.mlmodel"; sourceTree = "<group>"; };
+		35699F8B2C678F5300BE1C6D /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,9 +60,13 @@
 		35699F752C678E6B00BE1C6D /* MLClassifier */ = {
 			isa = PBXGroup;
 			children = (
+				35699F852C678EE000BE1C6D /* ObjectDetector.swift */,
 				35699F842C678E8C00BE1C6D /* MLClassifier.entitlements */,
 				35699F762C678E6B00BE1C6D /* MLClassifierApp.swift */,
+				35699F892C678F1200BE1C6D /* MyImageClassifier 4 copy.mlmodel */,
+				35699F872C678F0E00BE1C6D /* TailLampDetector.mlmodel */,
 				35699F782C678E6B00BE1C6D /* ContentView.swift */,
+				35699F8B2C678F5300BE1C6D /* ImageModel.swift */,
 				35699F7A2C678E6C00BE1C6D /* Assets.xcassets */,
 				35699F7C2C678E6C00BE1C6D /* Preview Content */,
 			);
@@ -139,8 +151,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35699F862C678EE000BE1C6D /* ObjectDetector.swift in Sources */,
+				35699F8C2C678F5300BE1C6D /* ImageModel.swift in Sources */,
 				35699F792C678E6B00BE1C6D /* ContentView.swift in Sources */,
+				35699F882C678F0E00BE1C6D /* TailLampDetector.mlmodel in Sources */,
 				35699F772C678E6B00BE1C6D /* MLClassifierApp.swift in Sources */,
+				35699F8A2C678F1200BE1C6D /* MyImageClassifier 4 copy.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
