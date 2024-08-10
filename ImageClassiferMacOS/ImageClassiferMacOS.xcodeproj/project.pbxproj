@@ -13,6 +13,8 @@
 		3541CFD92C67420F0094E549 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3541CFD82C67420F0094E549 /* Preview Assets.xcassets */; };
 		3541CFE12C6742490094E549 /* ObjectDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3541CFE02C6742490094E549 /* ObjectDetector.swift */; };
 		3541CFE32C67427D0094E549 /* TailLampDetector.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3541CFE22C67427D0094E549 /* TailLampDetector.mlmodel */; };
+		35EB468C2C675123004E5B6E /* PhotoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EB468B2C675123004E5B6E /* PhotoPickerView.swift */; };
+		35EB468E2C67526E004E5B6E /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EB468D2C67526E004E5B6E /* ImageModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		3541CFDA2C67420F0094E549 /* ImageClassiferMacOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ImageClassiferMacOS.entitlements; sourceTree = "<group>"; };
 		3541CFE02C6742490094E549 /* ObjectDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDetector.swift; sourceTree = "<group>"; };
 		3541CFE22C67427D0094E549 /* TailLampDetector.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = TailLampDetector.mlmodel; sourceTree = "<group>"; };
+		35EB468B2C675123004E5B6E /* PhotoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerView.swift; sourceTree = "<group>"; };
+		35EB468D2C67526E004E5B6E /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +66,8 @@
 				3541CFE22C67427D0094E549 /* TailLampDetector.mlmodel */,
 				3541CFE02C6742490094E549 /* ObjectDetector.swift */,
 				3541CFDA2C67420F0094E549 /* ImageClassiferMacOS.entitlements */,
+				35EB468B2C675123004E5B6E /* PhotoPickerView.swift */,
+				35EB468D2C67526E004E5B6E /* ImageModel.swift */,
 				3541CFD72C67420F0094E549 /* Preview Content */,
 			);
 			path = ImageClassiferMacOS;
@@ -146,8 +152,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3541CFE12C6742490094E549 /* ObjectDetector.swift in Sources */,
+				35EB468E2C67526E004E5B6E /* ImageModel.swift in Sources */,
 				3541CFD42C67420E0094E549 /* MainView.swift in Sources */,
 				3541CFE32C67427D0094E549 /* TailLampDetector.mlmodel in Sources */,
+				35EB468C2C675123004E5B6E /* PhotoPickerView.swift in Sources */,
 				3541CFD22C67420E0094E549 /* ImageClassiferMacOSApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,56 +11,15 @@ import PhotosUI
 
 struct MainView: View {
     @State private var image: NSImage? = nil
-    @State private var isShowingPhotoPicker = false
+    @State privagt var imageItems: 
     @State private var recognizedObjects: [VNRecognizedObjectObservation] = []
-    @State private var isShowingAlert = false
-    @State private var imageClassification = ""
     @State private var classifications: [VNClassificationObservation] = []
 
     private let objectDetector = ObjectDetector()
 
     var body: some View {
         VStack {
-            if let image = image {
-                Image(nsImage: image)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(maxHeight: 500)
-            } else {
-                Rectangle()
-                    .fill(Color.gray)
-                    .frame(width: 300, height: 300)
-                    .overlay(
-                        Text("No Image Selected")
-                            .foregroundColor(.white)
-                    )
-            }
-
-            Button(action: {
-                isShowingPhotoPicker = true
-            }) {
-                Text("Select Image")
-                    .font(.title)
-            }
-            .padding()
-
-            Button(action: {
-                if let image = image {
-                    detectObjects(in: image)
-                }
-            }, label: {
-                Text("Detect Objects")
-            })
-        }
-        .alert("Important Message", isPresented: $isShowingAlert) {
-            Button("OK", role: .cancel) {
-                // Define the action when OK is pressed.
-            }
-        } message: {
-            Text("Information")
-        }
-        .sheet(isPresented: $isShowingPhotoPicker) {
-            PhotoPickerView(selectedImage: $image)
+            
         }
     }
 }
@@ -108,43 +67,6 @@ extension MainView {
     }
 }
 
-struct PhotoPickerView: NSViewRepresentable {
-    @Binding var selectedImage: NSImage?
-
-    func makeNSView(context: Context) -> some NSView {
-        let button = NSButton(title: "Choose Photo", target: context.coordinator, action: #selector(Coordinator.choosePhoto))
-        return button
-    }
-
-    func updateNSView(_ nsView: NSViewType, context: Context) {
-        // No updates needed for static button
-    }
-
-    func makeCoordinator() -> Coordinator {
-        Coordinator(self)
-    }
-
-    class Coordinator: NSObject {
-        var parent: PhotoPickerView
-
-        init(_ parent: PhotoPickerView) {
-            self.parent = parent
-        }
-
-        @objc func choosePhoto() {
-            let dialog = NSOpenPanel()
-            dialog.title = "Choose a picture"
-            dialog.allowedFileTypes = ["png", "jpg", "jpeg"]
-            dialog.allowsMultipleSelection = false
-
-            if dialog.runModal() == .OK {
-                if let url = dialog.url, let image = NSImage(contentsOf: url) {
-                    parent.selectedImage = image
-                }
-            }
-        }
-    }
-}
 
 #Preview {
     MainView()

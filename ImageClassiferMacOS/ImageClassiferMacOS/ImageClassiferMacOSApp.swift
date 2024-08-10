@@ -12,6 +12,13 @@ struct ImageClassiferMacOSApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()
+                .onAppear {
+                    DispatchQueue.main.async {
+                        if let window = NSApplication.shared.windows.last {
+                            window.toggleFullScreen(nil)
+                        }
+                    }
+                }
         }
     }
 }
