@@ -82,22 +82,21 @@ struct PhotoPicker: UIViewControllerRepresentable {
                     // 감지된 객체가 없거나, 첫 번째 객체의 분류 정보를 사용하는 경우에 대한 처리
                     if !croppedImages.isEmpty {
                         let firstCroppedImage = croppedImages[0] ?? image
-                        self.objectDetector.classifyObject(in: firstCroppedImage) { classification in
-                            DispatchQueue.main.async {
-                                let label = Int(classification?.identifier ?? "") ?? 0
-                                
-                                // ImageModel 생성
-                                let newImageModel = ImageModel(
-                                    image: image,
-                                    croppedImages: croppedImages,
-                                    label: label,
-                                    carBoundingBox: carBoundingBoxes[0],
-                                    tailLampsboundingBoxs: tailLampBoundingBoxes,
-                                    isUploaded: false
-                                )
-                                self.parent.selectedImageModels.append(newImageModel)
-                            }
+                        
+                        DispatchQueue.main.async {
+                            
+                            // ImageModel 생성
+                            let newImageModel = ImageModel(
+                                image: image,
+                                croppedImages: croppedImages,
+                                label: tailLampBoundingBoxes.count,
+                                carBoundingBox: carBoundingBoxes[0],
+                                tailLampsboundingBoxs: tailLampBoundingBoxes,
+                                isUploaded: false
+                            )
+                            self.parent.selectedImageModels.append(newImageModel)
                         }
+                        
                     } else {
                         // 객체가 감지되지 않은 경우에 대한 기본 ImageModel
                         let newImageModel = ImageModel(

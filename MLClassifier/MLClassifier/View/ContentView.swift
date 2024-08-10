@@ -79,7 +79,7 @@ struct ContentView: View {
                         HStack {
                             VStack(alignment: .leading) {
                                 Text("Result").bold()
-                                switch imageItems[selectedItemIndex].croppedImages.count {
+                                switch imageItems[selectedItemIndex].label {
                                 case 0:
                                     Text("Stealth Vehicle")
                                         .foregroundStyle(.red)
