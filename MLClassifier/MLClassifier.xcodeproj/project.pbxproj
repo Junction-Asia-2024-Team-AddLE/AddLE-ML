@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		353A6DD72C6811DB00993CE1 /* CarDetecting.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 353A6DD62C6811DB00993CE1 /* CarDetecting.mlmodel */; };
+		353A6DD92C68183700993CE1 /* TaillightDetector 4.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 353A6DD82C68183700993CE1 /* TaillightDetector 4.mlmodel */; };
 		35699F772C678E6B00BE1C6D /* MLClassifierApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35699F762C678E6B00BE1C6D /* MLClassifierApp.swift */; };
 		35699F792C678E6B00BE1C6D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35699F782C678E6B00BE1C6D /* ContentView.swift */; };
 		35699F7B2C678E6C00BE1C6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35699F7A2C678E6C00BE1C6D /* Assets.xcassets */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		353A6DD62C6811DB00993CE1 /* CarDetecting.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CarDetecting.mlmodel; sourceTree = "<group>"; };
+		353A6DD82C68183700993CE1 /* TaillightDetector 4.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "TaillightDetector 4.mlmodel"; sourceTree = "<group>"; };
 		35699F732C678E6B00BE1C6D /* MLClassifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MLClassifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35699F762C678E6B00BE1C6D /* MLClassifierApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLClassifierApp.swift; sourceTree = "<group>"; };
 		35699F782C678E6B00BE1C6D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				35699FA72C67B8DE00BE1C6D /* MyImageClassifier.mlmodel */,
 				35699F872C678F0E00BE1C6D /* TailLampDetector.mlmodel */,
 				353A6DD62C6811DB00993CE1 /* CarDetecting.mlmodel */,
+				353A6DD82C68183700993CE1 /* TaillightDetector 4.mlmodel */,
 				35699F782C678E6B00BE1C6D /* ContentView.swift */,
 				35699F8B2C678F5300BE1C6D /* ImageModel.swift */,
 				35699F8D2C67906600BE1C6D /* PhotoPicker.swift */,
@@ -208,6 +211,7 @@
 				35699FAA2C67B94900BE1C6D /* MyObjectDetector.mlmodel in Sources */,
 				35699F8E2C67906600BE1C6D /* PhotoPicker.swift in Sources */,
 				35699FA22C679CED00BE1C6D /* Bundle + Ext.swift in Sources */,
+				353A6DD92C68183700993CE1 /* TaillightDetector 4.mlmodel in Sources */,
 				35699F862C678EE000BE1C6D /* ObjectDetector.swift in Sources */,
 				35699F9E2C679C7000BE1C6D /* FirebaseService.swift in Sources */,
 				35699FAC2C67BFC900BE1C6D /* Date + Ext.swift in Sources */,

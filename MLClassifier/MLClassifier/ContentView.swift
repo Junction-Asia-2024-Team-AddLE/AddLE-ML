@@ -31,8 +31,13 @@ struct ContentView: View {
                     Button(action: {
                         isPickerPresented = true
                     }, label: {
-                        Text("+ Add Image")
-                            .font(Font.system(size: 20))
+                        HStack {
+                            Image(systemName: "plus")
+                                .frame(width:45, height: 45)
+                            
+                            Text("Add Image")
+                                .font(Font.system(size: 20))
+                        }
                     })
                     .padding(10)
                     .buttonStyle(PlainButtonStyle())
@@ -59,29 +64,15 @@ struct ContentView: View {
                                     let observation = VNRecognizedObjectObservation(boundingBox: box!)
                                     return observation
                                 },
+                                carBoundingBox: imageItems[selectedItemIndex].carBoundingBox,
                                 imageSize: imageItems[selectedItemIndex].image.size
                             )
                         )
                     
                     Spacer().frame(height: 50)
                     
-                    VStack(spacing: 10) {
-                        
-                        HStack {
-                            VStack(alignment: .leading) {
-                                Text("Time").bold()
-                                Text(imageItems[selectedItemIndex].date.toKoreanDateTimeString())
-                                    .font(.subheadline)
-                                    .foregroundStyle(.gray)
-                            }
-                            Spacer()
-                        }
-                        .font(Font.system(size: 20))
-                        .padding()
-                        .background(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.gray, lineWidth: 0.8)
-                        )
+                    
+                    VStack(spacing: 20) {
                         
                         HStack {
                             VStack(alignment: .leading) {
@@ -89,25 +80,21 @@ struct ContentView: View {
                                 switch imageItems[selectedItemIndex].croppedImages.count {
                                 case 0:
                                     Text("Stealth Vehicle")
-                                        .font(.subheadline)
-                                        .foregroundStyle(.gray)
+                                        .foregroundStyle(.red)
                                 case 1:
                                     Text("One Side Malfunction")
-                                        .font(.subheadline)
-                                        .foregroundStyle(.gray)
+                                        .foregroundStyle(.yellow)
                                 case 2:
                                     Text("Normal")
-                                        .font(.subheadline)
-                                        .foregroundStyle(.gray)
+                                        .foregroundStyle(.green)
                                 default:
-                                    Text("Error")
-                                        .font(.subheadline)
-                                        .foregroundStyle(.gray)
+                                    Text("Normal")
+                                        .foregroundStyle(.green)
                                 }
                             }
                             Spacer()
                         }
-                        .font(Font.system(size: 20))
+                        .font(Font.system(size: 30))
                         .padding()
                         .background(
                             RoundedRectangle(cornerRadius: 10)
@@ -116,15 +103,31 @@ struct ContentView: View {
                         
                         HStack {
                             VStack(alignment: .leading) {
+                                Text("Time").bold()
+                                Text(imageItems[selectedItemIndex].date.toKoreanDateTimeString())
+                                    .foregroundStyle(.gray)
+                            }
+                            Spacer()
+                        }
+                        .font(Font.system(size: 30))
+                        .padding()
+                        .background(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.gray, lineWidth: 0.8)
+                        )
+                        
+                       
+                        
+                        HStack {
+                            VStack(alignment: .leading) {
                                 Text("latitude, longitude").bold()
                                 Text("\(imageItems[selectedItemIndex].latitude), \(imageItems[selectedItemIndex].longitude)")
-                                    .font(.subheadline)
                                     .foregroundStyle(.gray)
                             }
                             
                             Spacer()
                         }
-                        .font(Font.system(size: 20))
+                        .font(Font.system(size: 30))
                         .padding()
                         .background(
                             RoundedRectangle(cornerRadius: 10)
@@ -136,7 +139,6 @@ struct ContentView: View {
                     
                     Spacer()
                     
-                    Divider()
                     
                     HStack {
                         
@@ -151,17 +153,21 @@ struct ContentView: View {
                                     isLoading = false
                                 }
                             }, label: {
-                                if !isLoading {
-                                    Text("Upload Image")
-                                        .font(Font.system(size: 20))
-                                        .foregroundStyle(.white)
-                                        .padding(10)
-                                } else {
-                                    ProgressView()
-                                        .frame(width: 40, height: 40)
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: 15)
+                                        .frame(width: 150, height: 40)
+                                    
+                                    if !isLoading {
+                                        Text("Upload Image")
+                                            .font(Font.system(size: 20))
+                                            .foregroundStyle(.white)
+                                            .padding(10)
+                                    } else {
+                                        ProgressView()
+                                            .frame(width: 40, height: 40)
+                                    }
+                                    
                                 }
-                                
-                                
                             })
                             
                         } else {

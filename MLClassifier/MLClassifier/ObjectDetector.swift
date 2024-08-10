@@ -23,9 +23,9 @@ class ObjectDetector {
         self.carDetectionModel = carDetectionModel
         
         // TailLampDetecitonModel 로드
-        guard let tailLampDetectionModelURL = Bundle.main.url(forResource: "MyObjectDetector", withExtension: "mlmodelc"),
+        guard let tailLampDetectionModelURL = Bundle.main.url(forResource: "TaillightDetector 4", withExtension: "mlmodelc"),
               let tailLampDetectionModel = try? VNCoreMLModel(for: MLModel(contentsOf: tailLampDetectionModelURL)) else {
-            fatalError("MyObjectDetector 모델을 로드할 수 없습니다.")
+            fatalError("TaillightDetector 4 모델을 로드할 수 없습니다.")
         }
         self.tailLampDetectionModel = tailLampDetectionModel
         
