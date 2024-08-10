@@ -26,6 +26,7 @@
 		35699FA82C67B8DE00BE1C6D /* MyImageClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 35699FA72C67B8DE00BE1C6D /* MyImageClassifier.mlmodel */; };
 		35699FAA2C67B94900BE1C6D /* MyObjectDetector.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 35699FA92C67B94900BE1C6D /* MyObjectDetector.mlmodel */; };
 		35699FAC2C67BFC900BE1C6D /* Date + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35699FAB2C67BFC900BE1C6D /* Date + Ext.swift */; };
+		35699FAE2C67DCA900BE1C6D /* DetectionOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35699FAD2C67DCA900BE1C6D /* DetectionOverlay.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		35699FA72C67B8DE00BE1C6D /* MyImageClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MyImageClassifier.mlmodel; sourceTree = "<group>"; };
 		35699FA92C67B94900BE1C6D /* MyObjectDetector.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MyObjectDetector.mlmodel; sourceTree = "<group>"; };
 		35699FAB2C67BFC900BE1C6D /* Date + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date + Ext.swift"; sourceTree = "<group>"; };
+		35699FAD2C67DCA900BE1C6D /* DetectionOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectionOverlay.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				35699FAB2C67BFC900BE1C6D /* Date + Ext.swift */,
 				35699FA12C679CED00BE1C6D /* Bundle + Ext.swift */,
 				35699F7C2C678E6C00BE1C6D /* Preview Content */,
+				35699FAD2C67DCA900BE1C6D /* DetectionOverlay.swift */,
 			);
 			path = MLClassifier;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 				35699FAC2C67BFC900BE1C6D /* Date + Ext.swift in Sources */,
 				35699F8C2C678F5300BE1C6D /* ImageModel.swift in Sources */,
 				35699F9B2C679B6F00BE1C6D /* ImageDetection.swift in Sources */,
+				35699FAE2C67DCA900BE1C6D /* DetectionOverlay.swift in Sources */,
 				35699FA82C67B8DE00BE1C6D /* MyImageClassifier.mlmodel in Sources */,
 				35699F992C679B3300BE1C6D /* AppDelegate.swift in Sources */,
 				35699F792C678E6B00BE1C6D /* ContentView.swift in Sources */,

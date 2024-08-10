@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Vision
 
 struct ContentView: View {
     @State private var imageItems: [ImageModel] = []
@@ -50,7 +51,17 @@ struct ContentView: View {
                     Image(uiImage: imageItems[selectedItemIndex].image)
                         .resizable()
                         .scaledToFit()
+                        .aspectRatio(contentMode: .fit)
                         .frame(maxWidth: .infinity, maxHeight: 500)
+                        .overlay(
+                            DetectionOverlay(
+                                objects: imageItems[selectedItemIndex].tailLampsboundingBoxs.map { box in
+                                    let observation = VNRecognizedObjectObservation(boundingBox: box!)
+                                    return observation
+                                },
+                                imageSize: imageItems[selectedItemIndex].image.size
+                            )
+                        )
                     
                     Spacer().frame(height: 50)
                     
