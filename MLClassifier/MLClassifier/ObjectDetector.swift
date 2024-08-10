@@ -10,10 +10,17 @@ import CoreML
 import Vision
 
 class ObjectDetector {
+    var carDetectionModel: VNCoreMLModel // 차량을 감지하는 모델 (Object Detection)
     var tailLampDetectionModel: VNCoreMLModel // 차량 후미등을 감지하는 모델 (Object Detection)
     var tailLampClassificationModel: VNCoreMLModel // 차량 후미등을 분류하는 모델 (Classification)
     
     init() {
+        // TailLampDetecitonModel 로드
+        guard let carDetectionModelURL = Bundle.main.url(forResource: "CarDetecting", withExtension: "mlmodelc"),
+              let carDetectionModel = try? VNCoreMLModel(for: MLModel(contentsOf: carDetectionModelURL)) else {
+            fatalError("CarDetecting 모델을 로드할 수 없습니다.")
+        }
+        self.carDetectionModel = carDetectionModel
         
         // TailLampDetecitonModel 로드
         guard let tailLampDetectionModelURL = Bundle.main.url(forResource: "MyObjectDetector", withExtension: "mlmodelc"),
@@ -30,6 +37,33 @@ class ObjectDetector {
         self.tailLampClassificationModel = tailLampClassificationModel
     }
     
+    // MARK: - 차량을 감지하는 모델
+    func detectCarObjects(in image: UIImage, completion: @escaping ([VNRecognizedObjectObservation]?) -> Void) {
+        guard let cgImage = image.cgImage else {
+            print("차량을 CGImage로 변환할 수 없습니다.")
+            completion(nil)
+            return
+        }
+        
+        let request = VNCoreMLRequest(model: carDetectionModel) { (request, error) in
+            guard let results = request.results as? [VNRecognizedObjectObservation] else {
+                print("차량 사진을 가져올 수 없습니다.")
+                completion(nil)
+                return
+            }
+            completion(results)
+        }
+        
+        let handler = VNImageRequestHandler(cgImage: cgImage, options: [:])
+        DispatchQueue.global().async {
+            do {
+                try handler.perform([request])
+            } catch {
+                print("차량 인식 요청을 수행할 수 없습니다: \(error)")
+                completion(nil)
+            }
+        }
+    }
     
     
     // MARK: - 차량 후미등을 감지하는 모델
