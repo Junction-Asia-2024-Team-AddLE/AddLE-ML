@@ -69,6 +69,63 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		353A6DDA2C68226A00993CE1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				35699F782C678E6B00BE1C6D /* ContentView.swift */,
+				35699F8D2C67906600BE1C6D /* PhotoPicker.swift */,
+				35699FAD2C67DCA900BE1C6D /* DetectionOverlay.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		353A6DDB2C68228B00993CE1 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				35699FAB2C67BFC900BE1C6D /* Date + Ext.swift */,
+				35699FA12C679CED00BE1C6D /* Bundle + Ext.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		353A6DDC2C6822A200993CE1 /* ML */ = {
+			isa = PBXGroup;
+			children = (
+				353A6DDD2C6822BB00993CE1 /* MLModels */,
+				35699F852C678EE000BE1C6D /* ObjectDetector.swift */,
+			);
+			path = ML;
+			sourceTree = "<group>";
+		};
+		353A6DDD2C6822BB00993CE1 /* MLModels */ = {
+			isa = PBXGroup;
+			children = (
+				35699FA92C67B94900BE1C6D /* MyObjectDetector.mlmodel */,
+				35699FA72C67B8DE00BE1C6D /* MyImageClassifier.mlmodel */,
+				35699F872C678F0E00BE1C6D /* TailLampDetector.mlmodel */,
+				353A6DD62C6811DB00993CE1 /* CarDetecting.mlmodel */,
+				353A6DD82C68183700993CE1 /* TaillightDetector 4.mlmodel */,
+			);
+			path = MLModels;
+			sourceTree = "<group>";
+		};
+		353A6DDE2C6822D700993CE1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				35699F9A2C679B6F00BE1C6D /* ImageDetection.swift */,
+				35699F8B2C678F5300BE1C6D /* ImageModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		353A6DDF2C6823A600993CE1 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				35699F9D2C679C7000BE1C6D /* FirebaseService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		35699F6A2C678E6B00BE1C6D = {
 			isa = PBXGroup;
 			children = (
@@ -88,28 +145,17 @@
 		35699F752C678E6B00BE1C6D /* MLClassifier */ = {
 			isa = PBXGroup;
 			children = (
-				35699F762C678E6B00BE1C6D /* MLClassifierApp.swift */,
-				35699F9F2C679CBE00BE1C6D /* SecretKey.plist */,
-				35699F982C679B3300BE1C6D /* AppDelegate.swift */,
+				353A6DDF2C6823A600993CE1 /* Network */,
+				353A6DDE2C6822D700993CE1 /* Model */,
 				35699F9C2C679B9600BE1C6D /* App */,
+				353A6DDC2C6822A200993CE1 /* ML */,
+				353A6DDB2C68228B00993CE1 /* Extension */,
+				353A6DDA2C68226A00993CE1 /* View */,
+				35699F9F2C679CBE00BE1C6D /* SecretKey.plist */,
 				35699F912C679A6C00BE1C6D /* GoogleService-Info.plist */,
-				35699F852C678EE000BE1C6D /* ObjectDetector.swift */,
 				35699F842C678E8C00BE1C6D /* MLClassifier.entitlements */,
-				35699FA92C67B94900BE1C6D /* MyObjectDetector.mlmodel */,
-				35699FA72C67B8DE00BE1C6D /* MyImageClassifier.mlmodel */,
-				35699F872C678F0E00BE1C6D /* TailLampDetector.mlmodel */,
-				353A6DD62C6811DB00993CE1 /* CarDetecting.mlmodel */,
-				353A6DD82C68183700993CE1 /* TaillightDetector 4.mlmodel */,
-				35699F782C678E6B00BE1C6D /* ContentView.swift */,
-				35699F8B2C678F5300BE1C6D /* ImageModel.swift */,
-				35699F8D2C67906600BE1C6D /* PhotoPicker.swift */,
 				35699F7A2C678E6C00BE1C6D /* Assets.xcassets */,
-				35699F9A2C679B6F00BE1C6D /* ImageDetection.swift */,
-				35699F9D2C679C7000BE1C6D /* FirebaseService.swift */,
-				35699FAB2C67BFC900BE1C6D /* Date + Ext.swift */,
-				35699FA12C679CED00BE1C6D /* Bundle + Ext.swift */,
 				35699F7C2C678E6C00BE1C6D /* Preview Content */,
-				35699FAD2C67DCA900BE1C6D /* DetectionOverlay.swift */,
 			);
 			path = MLClassifier;
 			sourceTree = "<group>";
@@ -125,6 +171,8 @@
 		35699F9C2C679B9600BE1C6D /* App */ = {
 			isa = PBXGroup;
 			children = (
+				35699F982C679B3300BE1C6D /* AppDelegate.swift */,
+				35699F762C678E6B00BE1C6D /* MLClassifierApp.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
