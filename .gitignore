@@ -1,0 +1,141 @@
+# Xcode
+.DS_Store
+build/
+DerivedData/
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+*.xcworkspace
+!default.xcworkspace
+
+# Swift Package Manager
+/.build
+/Packages
+xcuserdata/
+Package.pins
+Package.resolved
+
+# CocoaPods
+Pods/
+Podfile.lock
+
+# Carthage
+Carthage/Build/
+Carthage/Checkouts/
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+# Xcode specific files
+xcuserdata/
+*.xcuserstate
+*.xcscmblueprint
+*.xccheckout
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+
+# macOS Specific Files
+*.swp
+*.lock
+
+# Temporary and Backup Files
+*~
+*.swp
+*.tmp
+*.swm
+*.tmp
+*.temp
+
+# Log Files
+*.log
+
+# App Store Connect
+*.itmsp
+
+# Swift Package Manager
+.build/
+.swiftpm/xcode/package.xcworkspace/
+.swiftpm/xcode/xcuserdata/
+
+## Firebase
+*/GoogleService-Info.plist
+
+# SwiftPM specific
+.build/
+.swiftpm/
+Package.resolved
+
+# xcresult
+*.xcresult
+
+# Preview Files
+*.previews/
+
+# Swift UI Previews
+.swiftui-intermediates/
+
+# Swift Playground Files
+timeline.xctimeline
+playground.xcplayground
+
+# Mac Catalyst
+*.appiconset/icon_*
+
+# Custom Rules
+user_interface.xcuserstate
+*.xcscheme
+*.moved-aside
+
+# Environment specific
+*.xcworkspace/xcuserdata
+
+# Lock files
+*.lock
+
+# Keychains
+*.keychain
+*.keychain-db
+
+# Archive Files
+*.xcarchive
+
+# Other IDE Specific
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+*.tmproj
+
+# Static Analysis
+.swiftlint.yml
+*.swiftformat
+
+# Git Hooks
+.hooks/
+
+# Generated Files
+*.generated.*
+
+# Simulator Files
+*.simdevicetype
+*.simruntime
+
+# Crashlytics
+.crashlytics/
+.crashlytics.dSYM/
+
+# Frameworks
+*.framework
+*.xcodeproj/project.xcworkspace
+
+# Temporary Files
+**/.DS_Store
+
+# Unity3D generated meta files
+*.pidb
+*.sconsign
