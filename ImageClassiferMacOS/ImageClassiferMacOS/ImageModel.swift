@@ -8,9 +8,9 @@
 import Foundation
 import SwiftUI
 
-struct ImageModel {
+struct ImageModel: Identifiable, Hashable {
     let id = UUID()
     let image: NSImage
-    let confidence: Float?
-    let label: Int?
+    let confidence: Float? = nil
+    let label: Int? = nil
 }

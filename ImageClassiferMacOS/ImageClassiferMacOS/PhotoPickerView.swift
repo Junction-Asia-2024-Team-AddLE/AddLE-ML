@@ -8,10 +8,9 @@
 import SwiftUI
 
 struct PhotoPickerView: NSViewRepresentable {
-    @Binding var selectedImage: NSImage?
-
+    @Binding var selectedImages: [ImageModel]
     func makeNSView(context: Context) -> some NSView {
-        let button = NSButton(title: "Choose Photo", target: context.coordinator, action: #selector(Coordinator.choosePhoto))
+        let button = NSButton(title: "Choose Photos", target: context.coordinator, action: #selector(Coordinator.choosePhotos))
         return button
     }
 
@@ -30,20 +29,25 @@ struct PhotoPickerView: NSViewRepresentable {
             self.parent = parent
         }
 
-        @objc func choosePhoto() {
+        @objc func choosePhotos() {
             let dialog = NSOpenPanel()
-            dialog.title = "Choose a picture"
+            dialog.title = "Choose pictures"
             dialog.allowedFileTypes = ["png", "jpg", "jpeg"]
-            dialog.allowsMultipleSelection = false
+            dialog.allowsMultipleSelection = true
 
             if dialog.runModal() == .OK {
-                if let url = dialog.url, let image = NSImage(contentsOf: url) {
-                    parent.selectedImage = image
+                for url in dialog.urls {
+                    if let image = NSImage(contentsOf: url) {
+                        let imageTitle = url.lastPathComponent
+                        let newItem = ImageModel(image: image)
+                        parent.selectedImages.append(newItem)
+                    }
                 }
             }
         }
     }
 }
+
 
 
 //#Preview {

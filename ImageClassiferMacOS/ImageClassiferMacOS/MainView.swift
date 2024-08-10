@@ -10,64 +10,47 @@ import Vision
 import PhotosUI
 
 struct MainView: View {
-    @State private var image: NSImage? = nil
-    @State privagt var imageItems: 
-    @State private var recognizedObjects: [VNRecognizedObjectObservation] = []
-    @State private var classifications: [VNClassificationObservation] = []
-
-    private let objectDetector = ObjectDetector()
+    @State private var imageItems: [ImageModel] = []
+    @State private var isShowingPhotoPicker = false
+    @State private var selectedItem: ImageModel? = nil
 
     var body: some View {
-        VStack {
-            
-        }
-    }
-}
-
-extension MainView {
-    private func detectObjects(in image: NSImage) {
-        objectDetector.detectTailLampObjects(in: image) { results in
-            DispatchQueue.main.async {
-                self.recognizedObjects = results ?? []
-
-                guard let firstObject = self.recognizedObjects.first else {
-                    print("No recognized objects found.")
-                    return
+        HStack {
+            VStack {
+                Button(action: {
+                    isShowingPhotoPicker = true
+                }) {
+                    Text("Add Images")
+                        .font(.title)
+                        .padding()
                 }
-
-                let imageSize = CGSize(width: image.size.width, height: image.size.height)
-
-                let boundingBox = firstObject.boundingBox
-                let cropRect = calculateCropRect(from: boundingBox, imageSize: imageSize)
-                
-                if let croppedImage = self.objectDetector.cropImage(image, toRect: cropRect) {
-                    self.image = croppedImage
-//                    self.objectDetector.classifyObject(in: xcroppedImage) { classification in
-//                        if let classification = classification {
-//                            DispatchQueue.main.async {
-//                                self.classifications.append(classification)
-//                                print(classification)
-//                            }
-//                        }
-//                    }
-                } else {
-                    print("Failed to crop image.")
+                List(selection: $selectedItem) {
+                    ForEach(imageItems) { item in
+                        Text("\(item.id)")
+                            .tag(item)
+                    }
                 }
+                .frame(minWidth: 200)
+            }
+            Divider()
+            if let selectedItem = selectedItem {
+                Image(nsImage: selectedItem.image)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            } else {
+                Text("No Image Selected")
+                    .font(.largeTitle)
+                    .foregroundColor(.gray)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
         }
-    }
-    
-    private func calculateCropRect(from boundingBox: CGRect, imageSize: CGSize) -> CGRect {
-        return CGRect(
-            x: boundingBox.origin.x * imageSize.width,
-            y: (1 - boundingBox.origin.y - boundingBox.height) * imageSize.height,
-            width: boundingBox.width * imageSize.width,
-            height: boundingBox.height * imageSize.height
-        )
+        .sheet(isPresented: $isShowingPhotoPicker) {
+            PhotoPickerView(selectedImages: $imageItems)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
-
-
 #Preview {
     MainView()
 }
