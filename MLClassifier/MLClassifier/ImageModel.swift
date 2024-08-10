@@ -14,16 +14,18 @@ struct ImageModel: Identifiable, Hashable {
     let image: UIImage
     let croppedImages: [UIImage?]
     let label: Int?
+    var carBoundingBox: CGRect?
     var tailLampsboundingBoxs: [CGRect?]
     var isUploaded: Bool
     var latitude: Float
     var longitude: Float
     
-    init(image: UIImage, croppedImages: [UIImage?] = [], label: Int? = nil, tailLampsboundingBoxs: [CGRect?] = [], isUploaded: Bool = false) {
+    init(image: UIImage, croppedImages: [UIImage?] = [], label: Int? = nil, carBoundingBox: CGRect? = nil, tailLampsboundingBoxs: [CGRect?] = [], isUploaded: Bool = false) {
         self.id = UUID()
         self.image = image
         self.croppedImages = croppedImages
         self.label = label
+        self.carBoundingBox = carBoundingBox
         self.tailLampsboundingBoxs = tailLampsboundingBoxs
         self.isUploaded = isUploaded
         self.date = ImageModel.randomPastDate() // 과거의 랜덤 날짜로 설정
