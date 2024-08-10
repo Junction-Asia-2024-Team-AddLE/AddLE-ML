@@ -154,7 +154,7 @@ struct ContentView: View {
                                 }
                             }, label: {
                                 ZStack {
-                                    RoundedRectangle(cornerRadius: 15)
+                                    RoundedRectangle(cornerRadius: 25)
                                         .frame(width: 150, height: 40)
                                     
                                     if !isLoading {
@@ -169,6 +169,7 @@ struct ContentView: View {
                                     
                                 }
                             })
+                            .padding()
                             
                         } else {
                             Text("Upload Complete")
