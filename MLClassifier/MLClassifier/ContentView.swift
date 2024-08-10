@@ -49,6 +49,12 @@ struct ContentView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(maxWidth: .infinity, maxHeight: 500)
+//                        .onAppear() {
+//                            print(selectedItem.label)
+//                            print(selectedItem.confidence)
+//                        }
+                    Text("\(selectedItem.label)")
+                    Text("\(selectedItem.confidence)")
                     Spacer()
                 }
             } else {

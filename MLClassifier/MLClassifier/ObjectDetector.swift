@@ -23,7 +23,7 @@ class ObjectDetector {
         self.tailLampDetecitonModel = tailLampDetecitonModel
         
         // TailLampClassificationModel 로드
-        guard let tailLampClassificationModelURL = Bundle.main.url(forResource: "MyImageClassifier 4 copy", withExtension: "mlmodelc"),
+        guard let tailLampClassificationModelURL = Bundle.main.url(forResource: "MyImageClassifier", withExtension: "mlmodelc"),
               let tailLampClassificationModel = try? VNCoreMLModel(for: MLModel(contentsOf: tailLampClassificationModelURL)) else {
             fatalError("Tail Lamp ClassificationModel Model 모델을 로드할 수 없습니다.")
         }

@@ -16,6 +16,7 @@
 		35699F8A2C678F1200BE1C6D /* MyImageClassifier 4 copy.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 35699F892C678F1200BE1C6D /* MyImageClassifier 4 copy.mlmodel */; };
 		35699F8C2C678F5300BE1C6D /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35699F8B2C678F5300BE1C6D /* ImageModel.swift */; };
 		35699F8E2C67906600BE1C6D /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35699F8D2C67906600BE1C6D /* PhotoPicker.swift */; };
+		35699F902C67942F00BE1C6D /* MyImageClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 35699F8F2C67942F00BE1C6D /* MyImageClassifier.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		35699F892C678F1200BE1C6D /* MyImageClassifier 4 copy.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "MyImageClassifier 4 copy.mlmodel"; sourceTree = "<group>"; };
 		35699F8B2C678F5300BE1C6D /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		35699F8D2C67906600BE1C6D /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
+		35699F8F2C67942F00BE1C6D /* MyImageClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MyImageClassifier.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				35699F842C678E8C00BE1C6D /* MLClassifier.entitlements */,
 				35699F762C678E6B00BE1C6D /* MLClassifierApp.swift */,
 				35699F892C678F1200BE1C6D /* MyImageClassifier 4 copy.mlmodel */,
+				35699F8F2C67942F00BE1C6D /* MyImageClassifier.mlmodel */,
 				35699F872C678F0E00BE1C6D /* TailLampDetector.mlmodel */,
 				35699F782C678E6B00BE1C6D /* ContentView.swift */,
 				35699F8B2C678F5300BE1C6D /* ImageModel.swift */,
@@ -161,6 +164,7 @@
 				35699F882C678F0E00BE1C6D /* TailLampDetector.mlmodel in Sources */,
 				35699F772C678E6B00BE1C6D /* MLClassifierApp.swift in Sources */,
 				35699F8A2C678F1200BE1C6D /* MyImageClassifier 4 copy.mlmodel in Sources */,
+				35699F902C67942F00BE1C6D /* MyImageClassifier.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
