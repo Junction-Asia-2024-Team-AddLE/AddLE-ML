@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var imageItems: [ImageModel] = []
     @State private var selectedItem: ImageModel? = nil
+    @State private var isPickerPresented = false
     
     var body: some View {
         HStack(spacing: 0) {
@@ -26,7 +27,7 @@ struct ContentView: View {
                 
                 HStack {
                     Button(action: {
-                        //openImagePicker()
+                        isPickerPresented = true
                     }, label: {
                         Text("+ 이미지 추가하기")
                             .font(.headline)
@@ -58,6 +59,9 @@ struct ContentView: View {
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .sheet(isPresented: $isPickerPresented) {
+            PhotoPicker(selectedImageModels: $imageItems)
+        }
     }
 }
 
