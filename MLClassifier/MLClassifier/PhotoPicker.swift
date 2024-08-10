@@ -14,6 +14,7 @@ import PhotosUI
 
 struct PhotoPicker: UIViewControllerRepresentable {
     @Binding var selectedImageModels: [ImageModel]
+    @State private var croppedImages: [UIImage] = []
     private let objectDetector = ObjectDetector()
 
     func makeUIViewController(context: Context) -> PHPickerViewController {
@@ -65,12 +66,14 @@ struct PhotoPicker: UIViewControllerRepresentable {
                     let cropRect = self.calculateCropRect(from: boundingBox, imageSize: imageSize)
 
                     if let croppedImage = self.objectDetector.cropImage(image, toRect: cropRect) {
+                        
                         self.objectDetector.classifyObject(in: croppedImage) { classification in
                             DispatchQueue.main.async {
                                 let confidence = classification?.confidence ?? 0.0
                                 let label = Int(classification!.identifier)
                                 let newImageModel = ImageModel(
                                     image: image,
+                                    croppedImage: croppedImage,
                                     confidence: confidence,
                                     label: label,
                                     boundingBox: boundingBox

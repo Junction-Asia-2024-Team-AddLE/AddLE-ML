@@ -53,8 +53,14 @@ struct ContentView: View {
 //                            print(selectedItem.label)
 //                            print(selectedItem.confidence)
 //                        }
+                    Image(uiImage: selectedItem.croppedImage!)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(maxWidth: 300)
+                    
                     Text("\(selectedItem.label)")
                     Text("\(selectedItem.confidence)")
+                    Text("\(selectedItem.boundingBox)")
                     Spacer()
                 }
             } else {

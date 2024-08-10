@@ -11,13 +11,15 @@ import SwiftUI
 struct ImageModel: Identifiable, Hashable {
     var id = UUID()
     let image: UIImage
+    let croppedImage: UIImage?
     let confidence: Float?
     let label: Int?
     var boundingBox: CGRect?
     
-    init(image: UIImage, confidence: Float? = nil, label: Int? = nil, boundingBox: CGRect? = nil) {
+    init(image: UIImage, croppedImage: UIImage? = nil, confidence: Float? = nil, label: Int? = nil, boundingBox: CGRect? = nil) {
         self.id = UUID()
         self.image = image
+        self.croppedImage = croppedImage
         self.confidence = confidence
         self.label = label
         self.boundingBox = boundingBox
