@@ -49,20 +49,25 @@ struct ContentView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(maxWidth: .infinity, maxHeight: 500)
-//                        .onAppear() {
-//                            print(selectedItem.label)
-//                            print(selectedItem.confidence)
-//                        }
-                    Image(uiImage: selectedItem.croppedImage!)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(maxWidth: 300)
-                    
-                    Text("\(selectedItem.label)")
-                    Text("\(selectedItem.confidence)")
-                    Text("\(selectedItem.boundingBox)")
+//                    Image(uiImage: selectedItem.croppedImage!)
+//                        .resizable()
+//                        .scaledToFit()
+//                        .frame(maxWidth: 300)
+//                    
+//                    Text("\(selectedItem.label)")
+//                    Text("\(selectedItem.confidence)")
+//                    Text("\(selectedItem.boundingBox)")
                     Spacer()
+                    
+                    Button(action: {
+                        Task {
+                            await FirebaseService.shared.uploadImage(imageModel:selectedItem)
+                        }
+                    }, label: {
+                        Text("send item")
+                    })
                 }
+                
             } else {
                 Text("No Image Selected")
                     .font(.largeTitle)
