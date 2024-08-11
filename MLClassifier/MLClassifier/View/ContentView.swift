@@ -106,7 +106,7 @@ struct ContentView: View {
                         HStack {
                             VStack(alignment: .leading) {
                                 Text("Time").bold()
-                                Text(imageItems[selectedItemIndex].date.toKoreanDateTimeString())
+                                Text(imageItems[selectedItemIndex].date.toEnglishDateTimeString())
                                     .foregroundStyle(.gray)
                             }
                             Spacer()
@@ -122,7 +122,7 @@ struct ContentView: View {
                         
                         HStack {
                             VStack(alignment: .leading) {
-                                Text("latitude, longitude").bold()
+                                Text("Latitude, Longitude").bold()
                                 Text("\(imageItems[selectedItemIndex].latitude), \(imageItems[selectedItemIndex].longitude)")
                                     .foregroundStyle(.gray)
                             }

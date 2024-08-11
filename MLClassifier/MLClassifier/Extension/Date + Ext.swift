@@ -8,11 +8,12 @@
 import Foundation
 
 extension Date {
-    func toKoreanDateTimeString() -> String {
+    func toEnglishDateTimeString() -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy년 M월 d일 HH시 mm분"
-        dateFormatter.locale = Locale(identifier: "ko_KR")
+        dateFormatter.dateFormat = "MMMM d, yyyy HH:mm" // 영어 형식으로 설정
+        dateFormatter.locale = Locale(identifier: "en_US")
         return dateFormatter.string(from: self)
     }
 }
+
 

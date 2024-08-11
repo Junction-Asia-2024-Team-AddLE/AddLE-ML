@@ -53,62 +53,50 @@ struct PhotoPicker: UIViewControllerRepresentable {
         }
 
         func processImage(_ image: UIImage) {
+            let group = DispatchGroup()
+            var carBoundingBox: CGRect?
+            var tailLampBoundingBoxes: [CGRect] = []
+            var croppedImages: [UIImage] = []
+            
+            group.enter()
             objectDetector.detectCarObjects(in: image) { carObservations in
-                guard let carObservations = carObservations else { return }
-                var carBoundingBoxes: [CGRect?] = []
+                defer { group.leave() }
+                carBoundingBox = carObservations?.first?.boundingBox
+                print("Car detection result: \(carBoundingBox != nil ? "Detected" : "Not detected")")
+            }
+            
+            group.enter()
+            objectDetector.detectTailLampObjects(in: image) { observations in
+                defer { group.leave() }
+                guard let observations = observations else { return }
                 
-                for observation in carObservations {
+                for observation in observations {
                     let imageSize = CGSize(width: image.size.width, height: image.size.height)
-                    carBoundingBoxes.append(observation.boundingBox)
+                    let cropRect = self.calculateCropRect(from: observation.boundingBox, imageSize: imageSize)
+                    
+                    if let croppedImage = self.objectDetector.cropImage(image, toRect: cropRect) {
+                        croppedImages.append(croppedImage)
+                        tailLampBoundingBoxes.append(observation.boundingBox)
+                    }
                 }
+                print("Tail lamp detection result: \(tailLampBoundingBoxes.count) detected")
+            }
+            
+            group.notify(queue: .main) {
+                let newImageModel = ImageModel(
+                    image: image,
+                    croppedImages: croppedImages,
+                    label: tailLampBoundingBoxes.count,
+                    carBoundingBox: carBoundingBox,
+                    tailLampsboundingBoxs: tailLampBoundingBoxes,
+                    isUploaded: false
+                )
                 
-                self.objectDetector.detectTailLampObjects(in: image) { observations in
-                    guard let observations = observations else { return }
-                    
-                    var croppedImages: [UIImage?] = []
-                    var tailLampBoundingBoxes: [CGRect?] = []
-                    
-                    // 모든 감지된 객체에 대해 처리
-                    for observation in observations {
-                        let imageSize = CGSize(width: image.size.width, height: image.size.height)
-                        let cropRect = self.calculateCropRect(from: observation.boundingBox, imageSize: imageSize)
-                        
-                        if let croppedImage = self.objectDetector.cropImage(image, toRect: cropRect) {
-                            croppedImages.append(croppedImage)
-                            tailLampBoundingBoxes.append(observation.boundingBox)
-                        }
-                    }
-                    
-                    // 감지된 객체가 없거나, 첫 번째 객체의 분류 정보를 사용하는 경우에 대한 처리
-                    if !croppedImages.isEmpty {
-                        let firstCroppedImage = croppedImages[0] ?? image
-                        
-                        DispatchQueue.main.async {
-                            
-                            // ImageModel 생성
-                            let newImageModel = ImageModel(
-                                image: image,
-                                croppedImages: croppedImages,
-                                label: tailLampBoundingBoxes.count,
-                                carBoundingBox: carBoundingBoxes[0],
-                                tailLampsboundingBoxs: tailLampBoundingBoxes,
-                                isUploaded: false
-                            )
-                            self.parent.selectedImageModels.append(newImageModel)
-                        }
-                        
-                    } else {
-                        // 객체가 감지되지 않은 경우에 대한 기본 ImageModel
-                        let newImageModel = ImageModel(
-                            image: image,
-                            croppedImages: [],
-                            label: nil,
-                            tailLampsboundingBoxs: [],
-                            isUploaded: false
-                        )
-                        self.parent.selectedImageModels.append(newImageModel)
-                    }
-                }
+                print("Detection summary:")
+                print("- Car detected: \(carBoundingBox != nil)")
+                print("- Tail lamps detected: \(tailLampBoundingBoxes.count)")
+                
+                self.parent.selectedImageModels.append(newImageModel)
             }
         }
 
