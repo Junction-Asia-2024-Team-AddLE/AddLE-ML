@@ -14,9 +14,11 @@ struct ImageDetection: Codable {
     var processStatus: Int
     var latitude: Float
     var longitude: Float
+    var address: String
+    var roadName: String
     
     enum CodingKeys: String, CodingKey {
-        case date, label, latitude, longitude
+        case date, label, latitude, longitude, address, roadName
         case imageUrl = "image"
         case processStatus = "status"
     }
@@ -30,4 +32,6 @@ struct FStore {
     static let process = "status"
     static let latitude = "latitude"
     static let longitude = "longitude"
+    static let address = "address"
+    static let roadName = "roadName"
 }
