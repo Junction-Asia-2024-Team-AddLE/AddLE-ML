@@ -7,14 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		353A6DD72C6811DB00993CE1 /* CarDetecting.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 353A6DD62C6811DB00993CE1 /* CarDetecting.mlmodel */; };
-		353A6DD92C68183700993CE1 /* TaillightDetector 4.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 353A6DD82C68183700993CE1 /* TaillightDetector 4.mlmodel */; };
+		353A6DD72C6811DB00993CE1 /* CarDetector.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 353A6DD62C6811DB00993CE1 /* CarDetector.mlmodel */; };
+		353A6DD92C68183700993CE1 /* TailLampDetector.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 353A6DD82C68183700993CE1 /* TailLampDetector.mlmodel */; };
 		35699F772C678E6B00BE1C6D /* MLClassifierApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35699F762C678E6B00BE1C6D /* MLClassifierApp.swift */; };
 		35699F792C678E6B00BE1C6D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35699F782C678E6B00BE1C6D /* ContentView.swift */; };
 		35699F7B2C678E6C00BE1C6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35699F7A2C678E6C00BE1C6D /* Assets.xcassets */; };
 		35699F7E2C678E6C00BE1C6D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35699F7D2C678E6C00BE1C6D /* Preview Assets.xcassets */; };
 		35699F862C678EE000BE1C6D /* ObjectDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35699F852C678EE000BE1C6D /* ObjectDetector.swift */; };
-		35699F882C678F0E00BE1C6D /* TailLampDetector.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 35699F872C678F0E00BE1C6D /* TailLampDetector.mlmodel */; };
 		35699F8C2C678F5300BE1C6D /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35699F8B2C678F5300BE1C6D /* ImageModel.swift */; };
 		35699F8E2C67906600BE1C6D /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35699F8D2C67906600BE1C6D /* PhotoPicker.swift */; };
 		35699F922C679A6C00BE1C6D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 35699F912C679A6C00BE1C6D /* GoogleService-Info.plist */; };
@@ -25,15 +24,13 @@
 		35699F9E2C679C7000BE1C6D /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35699F9D2C679C7000BE1C6D /* FirebaseService.swift */; };
 		35699FA02C679CBE00BE1C6D /* SecretKey.plist in Resources */ = {isa = PBXBuildFile; fileRef = 35699F9F2C679CBE00BE1C6D /* SecretKey.plist */; };
 		35699FA22C679CED00BE1C6D /* Bundle + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35699FA12C679CED00BE1C6D /* Bundle + Ext.swift */; };
-		35699FA82C67B8DE00BE1C6D /* MyImageClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 35699FA72C67B8DE00BE1C6D /* MyImageClassifier.mlmodel */; };
-		35699FAA2C67B94900BE1C6D /* MyObjectDetector.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 35699FA92C67B94900BE1C6D /* MyObjectDetector.mlmodel */; };
 		35699FAC2C67BFC900BE1C6D /* Date + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35699FAB2C67BFC900BE1C6D /* Date + Ext.swift */; };
 		35699FAE2C67DCA900BE1C6D /* DetectionOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35699FAD2C67DCA900BE1C6D /* DetectionOverlay.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		353A6DD62C6811DB00993CE1 /* CarDetecting.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CarDetecting.mlmodel; sourceTree = "<group>"; };
-		353A6DD82C68183700993CE1 /* TaillightDetector 4.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "TaillightDetector 4.mlmodel"; sourceTree = "<group>"; };
+		353A6DD62C6811DB00993CE1 /* CarDetector.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CarDetector.mlmodel; sourceTree = "<group>"; };
+		353A6DD82C68183700993CE1 /* TailLampDetector.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = TailLampDetector.mlmodel; sourceTree = "<group>"; };
 		35699F732C678E6B00BE1C6D /* MLClassifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MLClassifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35699F762C678E6B00BE1C6D /* MLClassifierApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLClassifierApp.swift; sourceTree = "<group>"; };
 		35699F782C678E6B00BE1C6D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -41,7 +38,6 @@
 		35699F7D2C678E6C00BE1C6D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		35699F842C678E8C00BE1C6D /* MLClassifier.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MLClassifier.entitlements; sourceTree = "<group>"; };
 		35699F852C678EE000BE1C6D /* ObjectDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDetector.swift; sourceTree = "<group>"; };
-		35699F872C678F0E00BE1C6D /* TailLampDetector.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = TailLampDetector.mlmodel; sourceTree = "<group>"; };
 		35699F8B2C678F5300BE1C6D /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		35699F8D2C67906600BE1C6D /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		35699F912C679A6C00BE1C6D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -50,8 +46,6 @@
 		35699F9D2C679C7000BE1C6D /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		35699F9F2C679CBE00BE1C6D /* SecretKey.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SecretKey.plist; sourceTree = "<group>"; };
 		35699FA12C679CED00BE1C6D /* Bundle + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle + Ext.swift"; sourceTree = "<group>"; };
-		35699FA72C67B8DE00BE1C6D /* MyImageClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MyImageClassifier.mlmodel; sourceTree = "<group>"; };
-		35699FA92C67B94900BE1C6D /* MyObjectDetector.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MyObjectDetector.mlmodel; sourceTree = "<group>"; };
 		35699FAB2C67BFC900BE1C6D /* Date + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date + Ext.swift"; sourceTree = "<group>"; };
 		35699FAD2C67DCA900BE1C6D /* DetectionOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectionOverlay.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -100,11 +94,8 @@
 		353A6DDD2C6822BB00993CE1 /* MLModels */ = {
 			isa = PBXGroup;
 			children = (
-				35699FA92C67B94900BE1C6D /* MyObjectDetector.mlmodel */,
-				35699FA72C67B8DE00BE1C6D /* MyImageClassifier.mlmodel */,
-				35699F872C678F0E00BE1C6D /* TailLampDetector.mlmodel */,
-				353A6DD62C6811DB00993CE1 /* CarDetecting.mlmodel */,
-				353A6DD82C68183700993CE1 /* TaillightDetector 4.mlmodel */,
+				353A6DD62C6811DB00993CE1 /* CarDetector.mlmodel */,
+				353A6DD82C68183700993CE1 /* TailLampDetector.mlmodel */,
 			);
 			path = MLModels;
 			sourceTree = "<group>";
@@ -256,22 +247,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35699FAA2C67B94900BE1C6D /* MyObjectDetector.mlmodel in Sources */,
 				35699F8E2C67906600BE1C6D /* PhotoPicker.swift in Sources */,
 				35699FA22C679CED00BE1C6D /* Bundle + Ext.swift in Sources */,
-				353A6DD92C68183700993CE1 /* TaillightDetector 4.mlmodel in Sources */,
+				353A6DD92C68183700993CE1 /* TailLampDetector.mlmodel in Sources */,
 				35699F862C678EE000BE1C6D /* ObjectDetector.swift in Sources */,
 				35699F9E2C679C7000BE1C6D /* FirebaseService.swift in Sources */,
 				35699FAC2C67BFC900BE1C6D /* Date + Ext.swift in Sources */,
 				35699F8C2C678F5300BE1C6D /* ImageModel.swift in Sources */,
 				35699F9B2C679B6F00BE1C6D /* ImageDetection.swift in Sources */,
 				35699FAE2C67DCA900BE1C6D /* DetectionOverlay.swift in Sources */,
-				35699FA82C67B8DE00BE1C6D /* MyImageClassifier.mlmodel in Sources */,
 				35699F992C679B3300BE1C6D /* AppDelegate.swift in Sources */,
 				35699F792C678E6B00BE1C6D /* ContentView.swift in Sources */,
-				35699F882C678F0E00BE1C6D /* TailLampDetector.mlmodel in Sources */,
 				35699F772C678E6B00BE1C6D /* MLClassifierApp.swift in Sources */,
-				353A6DD72C6811DB00993CE1 /* CarDetecting.mlmodel in Sources */,
+				353A6DD72C6811DB00993CE1 /* CarDetector.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

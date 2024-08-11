@@ -15,16 +15,16 @@ class ObjectDetector {
     
     init() {
         // TailLampDetecitonModel 로드
-        guard let carDetectionModelURL = Bundle.main.url(forResource: "CarDetecting", withExtension: "mlmodelc"),
+        guard let carDetectionModelURL = Bundle.main.url(forResource: "CarDetector", withExtension: "mlmodelc"),
               let carDetectionModel = try? VNCoreMLModel(for: MLModel(contentsOf: carDetectionModelURL)) else {
             fatalError("CarDetecting 모델을 로드할 수 없습니다.")
         }
         self.carDetectionModel = carDetectionModel
         
         // TailLampDetecitonModel 로드
-        guard let tailLampDetectionModelURL = Bundle.main.url(forResource: "TaillightDetector 4", withExtension: "mlmodelc"),
+        guard let tailLampDetectionModelURL = Bundle.main.url(forResource: "TailLampDetector", withExtension: "mlmodelc"),
               let tailLampDetectionModel = try? VNCoreMLModel(for: MLModel(contentsOf: tailLampDetectionModelURL)) else {
-            fatalError("TaillightDetector 4 모델을 로드할 수 없습니다.")
+            fatalError("TailLampDetector 모델을 로드할 수 없습니다.")
         }
         self.tailLampDetectionModel = tailLampDetectionModel
     }
